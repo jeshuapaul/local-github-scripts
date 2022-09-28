@@ -24,10 +24,11 @@ sudo git branch -M main
 #sudo git remote -v
 
 # This will push the existing folder on you local computer system, to the newly created Github repository.
+
 echo "--------------------------------------------------------------------------"
-echo "Please provide the URL of the new repo you want to push the code to ?"
-read repo_url
-sudo git remote add origin "$repo_url"
+echo "REPO NAME that the updates need to be pushed to ?"
+read repo_name
+sudo git remote add origin "https://github.com/jeshuapaul/$repo_name.git"
 
 # The last word in the command 'main', is not a fixed entry when running git push. It can be replaced with any relevant 'branch_name' that you are using.
 sudo git push -u origin main
