@@ -7,7 +7,7 @@ cd $(pwd)
 
 # Checking if any changes have been made to the local repo and then making a decision based on that.
 for i in $(sudo git status | awk '{print $1}' | cut -f1 -d ":"); do
-	if [ "$i" == "deleted" ] || [ "$i" == "Untracked" ]; then
+	if [ "$i" == "deleted" ] || [ "$i" == "Untracked" ] || [ "$i" == "modified" ]; then
 		# This will initialize the folder/repository that you have on your local computer system.
 		sudo git init
 
@@ -28,7 +28,7 @@ for i in $(sudo git status | awk '{print $1}' | cut -f1 -d ":"); do
 		break
 	elif [ "$i" == "nothing" ]; then
 		echo "--------------------------------------------------------------------------"
-		echo "No recent changes made to local repo."
+		echo "No recent changes made to local repo - no updates to push."
 	fi
 done
 
