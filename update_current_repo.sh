@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#awe
 # Go into the directory that you are working in and set the perms of the files to my local user.
 cd $(pwd)
 sudo chown jesh:jesh *
