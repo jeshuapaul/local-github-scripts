@@ -54,12 +54,12 @@ repo_name=$(cat .git/config | grep url | awk '{print $3}')
 echo "Updates are going to be pushed to - $repo_name"
 echo "Is this correct ? (y/n)"
 read answer
-while [ "$answer" == "n" ] || [ "$answer" == "N" ]; do
-	echo "You need to acknowledge the repo name ----- Updates are going to be pushed to - $repo_name"
-	echo "Is this correct ? (y/n)"
-	read answer
-done
-sudo git remote add origin "https://github.com/jeshuapaul/$repo_name.git"
+if [ "$answer" == "y" ] || [ "$answer" == "Y" ]; then
+	sudo git remote add origin "https://github.com/jeshuapaul/$repo_name.git"
+elif [ "$answer" == "n" ] || [ "$answer" == "N" ]; then
+	echo "Ending the script - confirm correct repo name before running script again."
+	exit
+fi
 
 # This does some git pull and git push magic, to ensure that the contents of your new Github repository, and the folder on you local system are the same.
 sudo git remote -v
