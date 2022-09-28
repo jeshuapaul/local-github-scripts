@@ -54,7 +54,9 @@ repo_name=$(cat .git/config | grep url | awk '{print $3}')
 echo "Updates are going to be pushed to - $repo_name"
 echo "Is this correct ? (y/n)"
 read answer
-while [ "$answer" != "y"]; do
+#if [ "$answer" == "y" ] || [ "$answer" == "Y"]; then
+
+while [ "$answer" != "y" ]; do
 	echo "Please confirm repo name - the script cannot continue."
 done
 
