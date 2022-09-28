@@ -1,7 +1,5 @@
 #!/bin/bash
 
-### Based off of - https://www.freecodecamp.org/news/pushing-to-github-made-simple-enough-for-poets/
-
 # Go into the directory that you are working in.
 cd $(pwd)
 
