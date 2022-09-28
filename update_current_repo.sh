@@ -57,6 +57,7 @@ read answer
 while [ "$answer" != "y" ] || [ "$answer" != "Y" ]; do
 	if [ "$answer" == "y" ] || [ "$answer" == "Y" ]; then
 	sudo git remote add origin "https://github.com/jeshuapaul/$repo_name.git"
+	continue
 	else
 		echo "You need to acknowledge the repo name."
 		echo "Updates are going to be pushed to - $repo_name"
