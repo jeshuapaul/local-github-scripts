@@ -55,8 +55,7 @@ echo "Updates are going to be pushed to - $repo_name"
 echo "Is this correct ? (y/n)"
 read answer
 while [ "$answer" == "n" ] || [ "$answer" == "N" ]; do
-	echo "You need to acknowledge the repo name."
-	echo "Updates are going to be pushed to - $repo_name"
+	echo "You need to acknowledge the repo name ----- Updates are going to be pushed to - $repo_name"
 	echo "Is this correct ? (y/n)"
 	read answer
 done
