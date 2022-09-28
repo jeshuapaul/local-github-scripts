@@ -50,8 +50,14 @@ done
 
 # Requesting the URL that the updates need to be pushed to.
 echo "--------------------------------------------------------------------------"
-echo "REPO NAME that the updates need to be pushed to ?"
-read repo_name
+repo_name=$(cat .git/config | grep url | awk '{print $3}')
+echo "Updates are going to be pushed to - $repo_name"
+echo "Is this correct ? (y/n)"
+read answer
+while [ "$answer" != "y"]; do
+	echo "Please confirm repo name - the script cannot continue."
+done
+
 sudo git remote add origin "https://github.com/jeshuapaul/$repo_name.git"
 
 # This does some git pull and git push magic, to ensure that the contents of your new Github repository, and the folder on you local system are the same.
