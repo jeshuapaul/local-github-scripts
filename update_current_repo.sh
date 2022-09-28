@@ -48,14 +48,14 @@ for i in $(sudo git status | awk '{print $1}' | cut -f1 -d ":"); do
 	fi
 done
 
-# Requesting the URL that the updates need to be pushed to.
+# Making sure the correct repo is being updated..
 echo "--------------------------------------------------------------------------"
 repo_name=$(cat .git/config | grep url | awk '{print $3}')
 echo "Updates are going to be pushed to - $repo_name"
 echo "Is this correct ? (y/n)"
 read answer
 if [ "$answer" == "y" ] || [ "$answer" == "Y" ]; then
-	sudo git remote add origin "https://github.com/jeshuapaul/$repo_name.git"
+	sudo git remote add origin "$repo_name"
 elif [ "$answer" == "n" ] || [ "$answer" == "N" ]; then
 	echo "Ending the script - confirm correct repo name before running script again."
 	exit
