@@ -1,7 +1,5 @@
 #!/bin/bash
 
-### Based off of - https://www.freecodecamp.org/news/pushing-to-github-made-simple-enough-for-poets/
-
 # Go into the directory that you are working in and set the perms of the files to my local user.
 cd $(pwd)
 sudo chown jesh:jesh *
@@ -36,6 +34,11 @@ for i in $(sudo git status | awk '{print $1}' | cut -f1 -d ":"); do
 			echo "--------------------------------------------------------------------------"
 			echo "Commit message for NEW FILE: $a ?"
 			read commit_msg
+				if [ -z "$commit_msg" ]; then
+					sudo git commit -m " ---"
+				else
+					sudo git commit -m "$commit_msg" "$a"
+				fi
 			sudo git commit -m "$commit_msg" "$a"
 			continue
 		done
